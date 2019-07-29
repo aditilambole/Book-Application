@@ -1,0 +1,14 @@
+﻿@model  BookMVCApplication.Models.Book
+@{
+    ViewBag.Title = "Update book";
+}
+<br />
+@using (Html.BeginForm("BookEdit", "Home"))//METHOD//CONTROLLER
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.BookName)
+        @Html.TextBoxFor(m => m.BookName, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m=>m.Id)
+    <button class="btn btn-primary" type="submit">save</button>
+}

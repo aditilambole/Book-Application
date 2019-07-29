@@ -1,0 +1,30 @@
+﻿@model  IEnumerable<BookMVCApplication.Models.Book>
+@{
+    ViewBag.Title = "Books Available";
+}
+<h2>@ViewBag.Title.</h2>
+<hr />
+<p><a href="https://localhost:44391/Home/New" class="btn btn-primary btn-lg">Add New &raquo;</a></p>
+<hr />
+<h3>@ViewBag.Message</h3>
+<hr />
+
+@*<p>Use this area to provide additional information.</p>*@
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Book Name</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr style="color:red">
+                <td>@item.BookName</td>
+                <td>
+                    @Html.ActionLink("Edit", "New1", item, new { @class = "btn btn-outline-warning" })
+                    @Html.ActionLink("Detail", "BookDetail", item, new { @class = "btn btn-outline-info" })
+                    @Html.ActionLink("Delete", "BookDelete", item, new { @class = "btn btn-outline-dark" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
